@@ -1,7 +1,7 @@
 {
-  "name": "local-auth-boilerplate",
+  "name": "project-2",
   "version": "1.0.0",
-  "description": "Boilerplate for local session authentication with Express.",
+  "description": "Project-2.",
   "main": "server.js",
   "directories": {
     "test": "test"
@@ -32,5 +32,13 @@
     "test": "NODE_ENV=test node_modules/mocha/bin/mocha"
   },
   "author": "Sang Choi",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sangchoi/project-2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sangchoi/project-2/issues"
+  },
+  "homepage": "https://github.com/sangchoi/project-2#readme"
 }
