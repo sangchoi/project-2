@@ -5,6 +5,7 @@ const passport = require('./config/passportConfig');
 const session = require('express-session');
 const flash = require('connect-flash');
 const isLoggedIn = require('./middleware/isLoggedIn');
+const signUp = require('./middleware/signUp');
 const helmet = require('helmet');
 require('dotenv').config();
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -52,6 +53,10 @@ app.use(function(req, res, next) {
 })
 
 app.get('/', function(req, res) {
+  res.render('index');
+});
+
+app.get('/:new', signUp, function(req, res) {
   res.render('index');
 });
 
