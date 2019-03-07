@@ -5,7 +5,6 @@ const passport = require('./config/passportConfig');
 const session = require('express-session');
 const flash = require('connect-flash');
 const isLoggedIn = require('./middleware/isLoggedIn');
-const signUp = require('./middleware/signUp');
 const helmet = require('helmet');
 require('dotenv').config();
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -56,16 +55,13 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
-app.get('/:new', signUp, function(req, res) {
-  res.render('index');
-});
 
 // app.get('/profile', isLoggedIn, function(req, res) {
 //   res.render('profile/index');
 // });
 
 app.use('/auth', require('./controllers/auth'));
-app.use('/profile', isLoggedIn, require('./controllers/profile'));
+app.use('/profile', require('./controllers/profile'));
 app.use('/country', require('./controllers/country'));
 
 var server = app.listen(process.env.PORT || 3000);

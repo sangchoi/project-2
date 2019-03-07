@@ -1,7 +1,16 @@
 var express = require('express');
 var router = express.Router();
+const isLoggedIn = require('../middleware/isLoggedIn');
 var db = require('../models');
 
+// Gets info from database
+router.get('/', isLoggedIn, function(req, res) {
+  db.user.findById(req.user.id).then( function(user) {
+    user.getProfile().then(function(profile) {
+      res.render('profile/index', {profile})
+    })
+  })
+})
 
 // Gets Edit Profile Page
 router.get('/new', function(req, res) {
@@ -9,7 +18,7 @@ router.get('/new', function(req, res) {
 });
 
 // Inserts users profile input into profile database
-router.post('/', function(req, res) {
+router.post('/', isLoggedIn, function(req, res) {
   db.user.findById(req.user.id).then( function(user) {
     user.createProfile({
       birthYear: req.body.birthYear,
@@ -25,14 +34,6 @@ router.post('/', function(req, res) {
   })
 })
 
-// Gets info from database
-router.get('/', function(req, res) {
-  db.user.findById(req.user.id).then( function(user) {
-    user.getProfile().then(function(profile) {
-      res.render('profile/index', {profile})
-    })
-  })
-})
 
 
   module.exports = router;
