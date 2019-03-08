@@ -29,7 +29,7 @@
     <h2>FRIENDS LIST</h2>
     <% friends.forEach(function(friend) { %>
         <%= friend.name %> 
-        <form method="POST" action="/friend/<%= friend.name %>/?_method=DELETE">
+        <form method="POST" action="/friend/<%= friend.id %>/?_method=DELETE">
             <input type="submit" value="UNFRIEND">
         </form>
   <% }) %>

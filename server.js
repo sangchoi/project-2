@@ -22,6 +22,9 @@ app.use(helmet());
 app.use(express.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 
+//for heroku
+// app.listen(process.env.PORT || 3000);
+
 
 const sessionStore = new SequelizeStore({
   db: db.sequelize, 

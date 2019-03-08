@@ -12,19 +12,19 @@ router.post('/', function(req, res) {
             name: req.body.name
         })
     }).then(function(friends) {
-        res.redirect('/country')
+        res.redirect('/country/' + req.body.country)
     })
   })
 
   
-// // DELETE A FRIEND 
-// router.delete('/:id', function(req, res) {
-//     db.usersFriends.destroy({
-//         where: {userId: req.user.id, friendId: req.params.id}
-//             }).then(function() {
-//                 res.redirect("/")
-//     })
-// })
+// DELETE A FRIEND 
+router.delete('/:id', function(req, res) {
+    db.usersFriends.destroy({
+        where: {userId: req.user.id, friendId: req.params.id}
+            }).then(function() {
+                res.redirect("/")
+    })
+})
 
 
 

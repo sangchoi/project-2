@@ -7,15 +7,15 @@ var db = require('../models');
 router.get('/', function(req, res) {
   db.user.findById(req.user.id).then( function(user) {
     user.getProfile().then(function(profile) {
-    user.getDestinations().then( function(destinations){
-      user.getFriends().then(function(friends) {
-        res.render('profile/index', {user, profile, destinations, friends})
+      user.getDestinations().then( function(destinations){
+        user.getFriends().then(function(friends) {
+          res.render('profile/index', {user, profile, destinations, friends})
 
-      })
+          })
       // res.json({user,profile,destinations})
+        })
+      })
     })
-    })
-  })
 })
 
 // Gets Edit Profile Page
