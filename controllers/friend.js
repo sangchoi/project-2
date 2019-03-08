@@ -22,7 +22,7 @@ router.delete('/:id', function(req, res) {
     db.usersFriends.destroy({
         where: {userId: req.user.id, friendId: req.params.id}
             }).then(function() {
-                res.redirect("/")
+                res.redirect("/profile")
     })
 })
 
