@@ -1,4 +1,5 @@
 const express = require('express');
+const methodOverride = require('method-override');
 const ejsLayouts = require('express-ejs-layouts');
 const bodyParser = require('body-parser');
 const passport = require('./config/passportConfig');
@@ -19,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(ejsLayouts);
 app.use(helmet());
 app.use(express.urlencoded({extended: false}));
+app.use(methodOverride('_method'));
 
 
 const sessionStore = new SequelizeStore({
@@ -63,6 +65,7 @@ app.get('/', function(req, res) {
 app.use('/auth', require('./controllers/auth'));
 app.use('/profile', require('./controllers/profile'));
 app.use('/country', require('./controllers/country'));
+app.use('/friend', require('./controllers/friend'));
 
 var server = app.listen(process.env.PORT || 3000);
 

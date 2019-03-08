@@ -1,5 +1,10 @@
-<h1>COUNTRIES</h1>
 
+
+<h1>COUNTRIES</h1>
+<br>
+<a href="/">Home</a>
+<a href="/profile">Profile</a>
+<br>
 <ul>
     <% countries.forEach( function(country) {%>
         <div><li><a href="/country/<%=country.name%>"><%= country.name %><img src="<%=country.flag%>" width="100" height="50"></a></li></div>

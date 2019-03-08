@@ -1,3 +1,28 @@
 <h1>ONE COUNTRY</h1>
+<a href="/profile">Profile</a>
+<a href="/country">Countries</a>
 
-<%= country %>
+<h1><%= country.name %></h1>
+
+<form action="/country/<%= country.name %>" method="POST">
+    <input type="text" name="name" value="<%= country.name %>">
+    <input type="submit" value="ADD TO WISH LIST">
+
+</form>
+
+<h1>USERS WHO SPEAK <%= country.languages[0].name %></h1>
+
+<% for (i=0; i<profiles.length; i++) { %>
+    
+    <form action="/friend" method="POST">
+    <input type="text" name="name" value="<%= profiles[i].user.name %>">
+    <input type="submit" value="ADD TO FRIENDS LIST">
+    
+    </form>
+
+<% } %>
+
+   
+
+
+

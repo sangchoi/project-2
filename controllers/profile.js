@@ -4,10 +4,16 @@ const isLoggedIn = require('../middleware/isLoggedIn');
 var db = require('../models');
 
 // Gets info from database
-router.get('/', isLoggedIn, function(req, res) {
+router.get('/', function(req, res) {
   db.user.findById(req.user.id).then( function(user) {
     user.getProfile().then(function(profile) {
-      res.render('profile/index', {profile})
+    user.getDestinations().then( function(destinations){
+      user.getFriends().then(function(friends) {
+        res.render('profile/index', {user, profile, destinations, friends})
+
+      })
+      // res.json({user,profile,destinations})
+    })
     })
   })
 })
@@ -18,7 +24,7 @@ router.get('/new', function(req, res) {
 });
 
 // Inserts users profile input into profile database
-router.post('/', isLoggedIn, function(req, res) {
+router.post('/', function(req, res) {
   db.user.findById(req.user.id).then( function(user) {
     user.createProfile({
       birthYear: req.body.birthYear,
@@ -33,7 +39,6 @@ router.post('/', isLoggedIn, function(req, res) {
     res.redirect('/');
   })
 })
-
 
 
   module.exports = router;

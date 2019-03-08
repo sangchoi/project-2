@@ -1,8 +1,9 @@
 <h2>Profile Page</h2>
 
 <a href="/">Home</a>
-<a href="/profile/new">Create Profile</a>
+<a href="/country">Countries</a>
 
+<div class="profile">
 <ul>
     <li>BIRTH YEAR : <%= profile.birthYear %></li>
     <li>GENDER : <%= profile.gender %></li>
@@ -11,4 +12,27 @@
     <li>COUNTRY : <%= profile.country %></li>
     <li>LANGUAGE : <%= profile.language%></li>
 </ul>
+</div>
+
+<div class="destinations">
+<h2>DESTINATION WISH LIST</h2>
+
+    <% destinations.forEach(function(destination) { %>
+        <%= destination.name %>
+   <% }) %>
+
+
+</div>
+
+
+<div class="friends">
+    <h2>FRIENDS LIST</h2>
+    <% friends.forEach(function(friend) { %>
+        <%= friend.name %> 
+        <form method="POST" action="/friend/<%= friend.name %>/?_method=DELETE">
+            <input type="submit" value="UNFRIEND">
+        </form>
+  <% }) %>
+   
+</div>
 
