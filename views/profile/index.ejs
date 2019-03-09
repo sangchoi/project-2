@@ -12,6 +12,7 @@
     <li>COUNTRY : <%= profile.country %></li>
     <li>LANGUAGE : <%= profile.language%></li>
 </ul>
+<a href="/profile/<%= profile.id %>/edit">edit</a>
 </div>
 
 <div class="destinations">
@@ -19,6 +20,9 @@
 
     <% destinations.forEach(function(destination) { %>
         <%= destination.name %>
+        <form method="POST" action="/country/<%= destination.id %>/?_method=DELETE">
+            <input type="submit" value="REMOVE DESTINATION">
+        </form>
    <% }) %>
 
 

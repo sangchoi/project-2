@@ -6,7 +6,7 @@ var db = require('../models');
 
 
 // ALL COUNTRIES
-router.get('/', function(req, res) {
+router.get('/', isLoggedIn, function(req, res) {
     let uri = 'https://restcountries.eu/rest/v2/all'
     request(uri, function (err, response, body) {
         let countries = JSON.parse(body)
@@ -17,7 +17,7 @@ router.get('/', function(req, res) {
   });
 
 // SHOW ONE COUNTRY
-router.get('/:name', function(req, res) {
+router.get('/:name', isLoggedIn, function(req, res) {
     let uri = `https://restcountries.eu/rest/v2/name/${req.params.name}`
     request(uri, function (err, response, body) {
         let country = JSON.parse(body)[0]
@@ -37,13 +37,22 @@ router.get('/:name', function(req, res) {
 })
 
 // ADD ONE COUNTRY TO DESTINATION TABLE
-router.post('/:name', function(req, res) {
+router.post('/:name', isLoggedIn, function(req, res) {
     db.user.findById(req.user.id).then(function(user) {
         user.createDestination({
             name: req.body.name
         })
     }).then(function(destination) {
         res.redirect('/country')
+    })
+})
+
+// DELETE COUNTRY FROM DESTINATION TABLE
+router.delete('/:id', isLoggedIn, function(req, res) {
+    db.usersDestinations.destroy({
+        where: {userId: req.user.id, destinationId: req.params.id}
+    }).then(function() {
+        res.redirect("/profile")
     })
 })
 

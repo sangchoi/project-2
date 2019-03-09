@@ -6,7 +6,7 @@ var db = require('../models');
 
 
 // ADD A FRIEND TO THE FRIENDS TABLE
-router.post('/', function(req, res) {
+router.post('/', isLoggedIn, function(req, res) {
     db.user.findById(req.user.id).then(function(user) {
         user.createFriend({
             name: req.body.name
@@ -18,7 +18,7 @@ router.post('/', function(req, res) {
 
   
 // DELETE A FRIEND 
-router.delete('/:id', function(req, res) {
+router.delete('/:id', isLoggedIn, function(req, res) {
     db.usersFriends.destroy({
         where: {userId: req.user.id, friendId: req.params.id}
             }).then(function() {
