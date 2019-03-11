@@ -1,46 +1,53 @@
 <body class="profilePage">
-<br>
-<a class="navlink" href="/">Home</a>
-<a class="navlink" href="/country">Countries</a>
-<a class="navlink" href="/auth/logout">Log Out</a>
 
-<br>
-<main class="mainProfile">
-<h2 class="profileHeader">Profile</h2><p class="editProfile"><a class="editProfile" href="/profile/<%= profile.id %>/edit">[EDIT]</a></p>
+    <br>
 
-<div class="profile">
-<ul>
-    <li>BIRTH YEAR : <%= profile.birthYear %></li>
-    <li>GENDER : <%= profile.gender %></li>
-    <li>CITY : <%= profile.city%></li>
-    <li>STATE : <%= profile.state %></li>
-    <li>COUNTRY : <%= profile.country %></li>
-    <li>LANGUAGE : <%= profile.language%></li>
-</ul>
-</div>
+    <a class="navlink" href="/">Home</a>
+    <a class="navlink" href="/country">Countries</a>
+    <a class="navlink" href="/auth/logout">Log Out</a>
 
-<br>
-<div class="destinations">
-<h2>DESTINATION WISH LIST</h2>
+    <br>
 
+    <main class="mainProfile">
+
+    <h2 class="profileHeader">Profile</h2>
+    <p class="editProfile"><a class="editProfile" href="/profile/<%= profile.id %>/edit">[EDIT]</a></p>
+
+    <div class="profile">
+    <ul>
+        <li>BIRTH YEAR : <%= profile.birthYear %></li>
+        <li>GENDER : <%= profile.gender %></li>
+        <li>CITY : <%= profile.city%></li>
+        <li>STATE : <%= profile.state %></li>
+        <li>COUNTRY : <%= profile.country %></li>
+        <li>LANGUAGE : <%= profile.language%></li>
+    </ul>
+    </div>
+
+    <br>
+
+    <div class="destinations">
+    <h2>DESTINATION WISH LIST</h2>
     <% destinations.forEach(function(destination) { %>
         <%= destination.name %>
         <form class="formFive" method="POST" action="/country/<%= destination.id %>/?_method=DELETE">
         <input type="submit" value="REMOVE DESTINATION">
         </form>
-   <% }) %>
-</div>
+    <% }) %>
+    </div>
 
-<br>
-<div class="friends">
+    <br>
+
+    <div class="friends">
     <h2>FRIENDS LIST</h2>
     <% friends.forEach(function(friend) { %>
         <%= friend.name %> 
         <form class= "formSix" method="POST" action="/friend/<%= friend.id %>/?_method=DELETE">
         <input type="submit" value="UNFRIEND">
         </form>
-  <% }) %>
-   
-</div>
-</main>
+    <% }) %>
+   </div>
+
+    </main>
+    
 </body>

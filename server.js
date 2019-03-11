@@ -22,16 +22,13 @@ app.use(helmet());
 app.use(express.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 
-//for heroku
-// app.listen(process.env.PORT || 3000);
-
 
 const sessionStore = new SequelizeStore({
   db: db.sequelize, 
   expiration: 30 * 60 * 1000
 });
 
-// Session is just an object that lives in memory. can be whatever
+// Session 
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
@@ -39,37 +36,35 @@ app.use(session({
   store: sessionStore
 }));
 
-//Use this line once to set up the store table
+// Session Table
 // sessionStore.sync();
 
-// This must come after the session and before passport
+// Flash Alert Middleware
 app.use(flash());
 
+// Passport
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Attaches flash messages to the response objects, an anonymous middleware function
-// This will hit every route
+// Flash
 app.use(function(req, res, next) {
-  res.locals.alerts = req.flash(); //any kind of alert will show in res.locals.alerts
+  res.locals.alerts = req.flash(); 
   res.locals.currentUser = req.user;
   next();
 })
 
+// Rendering index to root 
 app.get('/', function(req, res) {
   res.render('index');
 });
 
-
-// app.get('/profile', isLoggedIn, function(req, res) {
-//   res.render('profile/index');
-// });
-
+// Router
 app.use('/auth', require('./controllers/auth'));
 app.use('/profile', require('./controllers/profile'));
 app.use('/country', require('./controllers/country'));
 app.use('/friend', require('./controllers/friend'));
 
+// Port setup
 var server = app.listen(process.env.PORT || 3000);
 
 module.exports = server;

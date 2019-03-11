@@ -32,29 +32,25 @@ router.put("/:id", isLoggedIn, function(req, res) {
   })
 })
 
-
-
-// Gets info from database
+// GETS user, profile, destination, and friend info from database
 router.get('/', isLoggedIn, function(req, res) {
   db.user.findById(req.user.id).then( function(user) {
     user.getProfile().then(function(profile) {
       user.getDestinations().then( function(destinations){
         user.getFriends().then(function(friends) {
           res.render('profile/index', {user, profile, destinations, friends})
-
           })
-      // res.json({user,profile,destinations})
-        })
       })
     })
+  })
 })
 
-// Gets Create Profile Page
+// GETS create profile page
 router.get('/new', function(req, res) {
   res.render('profile/new');
 });
 
-// Inserts users profile input into profile database
+// POSTS users input into profile table in database
 router.post('/', isLoggedIn, function(req, res) {
   db.user.findById(req.user.id).then( function(user) {
     user.createProfile({
@@ -72,6 +68,4 @@ router.post('/', isLoggedIn, function(req, res) {
 })
 
 
-  
-
-  module.exports = router;
+module.exports = router;

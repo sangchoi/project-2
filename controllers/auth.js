@@ -3,14 +3,17 @@ var router = express.Router();
 var db = require('../models');
 var passport = require('../config/passportConfig');
 
-
+// GET sign up
 router.get('/signup', function(req, res) {
   res.render('auth/signup');
 });
 
+// POST sign up
 router.post('/signup', function(req, res) {
   db.user.findOrCreate({
-    where: {email: req.body.email},
+    where: {
+      email: req.body.email
+    },
     defaults: {
       name: req.body.name,
       password: req.body.password
@@ -20,11 +23,11 @@ router.post('/signup', function(req, res) {
       console.log("User created");
       passport.authenticate('local', {
         successRedirect: '/profile/new', 
-        successFlash: 'Account created and logged in'//message sent to user when account is successfully created
+        successFlash: 'Account created and logged in'
       })(req, res);
     } else {
       console.log('Email already exists');
-      req.flash('error', 'Email already exists');//flashes one time in the front and disappears
+      req.flash('error', 'Email already exists');
       res.redirect('/auth/signup');
     }
   }).catch(function(error) {
@@ -32,10 +35,12 @@ router.post('/signup', function(req, res) {
   })
 });
 
+// GET log in
 router.get('/login', function(req, res) {
   res.render('auth/login');
 });
 
+// POST log in
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/', 
   successFlash: 'You have logged in!', 
@@ -43,7 +48,7 @@ router.post('/login', passport.authenticate('local', {
   failureFlash: 'Invalid username and/or password'
 }));
 
-
+// GET log out
 router.get('/logout', function(req, res) {
   req.logout();
   req.flash('success', 'You have logged out!')

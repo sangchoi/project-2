@@ -5,7 +5,7 @@ const isLoggedIn = require('../middleware/isLoggedIn');
 var db = require('../models');
 
 
-// ADD A FRIEND TO THE FRIENDS TABLE
+// POST a friend to the friends table 
 router.post('/', isLoggedIn, function(req, res) {
     db.user.findById(req.user.id).then(function(user) {
         user.createFriend({
@@ -17,7 +17,7 @@ router.post('/', isLoggedIn, function(req, res) {
   })
 
   
-// DELETE A FRIEND 
+// DELETE a friend from the friends table
 router.delete('/:id', isLoggedIn, function(req, res) {
     db.usersFriends.destroy({
         where: {userId: req.user.id, friendId: req.params.id}
@@ -25,10 +25,6 @@ router.delete('/:id', isLoggedIn, function(req, res) {
                 res.redirect("/profile")
     })
 })
-
-
-
-
 
 
   module.exports = router;

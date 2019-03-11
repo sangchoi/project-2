@@ -1,35 +1,36 @@
 <body class="oneCountryPage">
-<br>
-<main class="mainOneCountry">
-<a class="navlink" href="/profile">Profile</a>
-<a class="navlink" href="/country">Countries</a>
-<a class="navlink" href="/auth/logout">Log Out</a>
 
-<br>
-<br>
+    <br>
 
-<h1><%= country.name %></h1>
-<img src="<%= country.flag %>" width="500" height="300">
+    <main class="mainOneCountry">
+    <a class="navlink" href="/profile">Profile</a>
+    <a class="navlink" href="/country">Countries</a>
+    <a class="navlink" href="/auth/logout">Log Out</a>
+
+    <br>
+    <br>
+
+    <h1><%= country.name %></h1>
+    <img src="<%= country.flag %>" width="500" height="300">
 
     <form class="formThree" action="/country/<%= country.name %>" method="POST">
     <input type="text" name="name" value="<%= country.name %>">
     <input type="submit" value="ADD TO WISH LIST">
     </form>
 
-<h1>Users who speak <%= country.languages[0].name %></h1>
+    <h1>Users who speak <%= country.languages[0].name %></h1>
 
-<% for (i=0; i<profiles.length; i++) { %>
-    
+    <% for (i=0; i<profiles.length; i++) { %>
     <form class="formFour" action="/friend" method="POST">
     <input type="hidden" name="country" value="<%= country.name %>">
     <input type="text" name="name" value="<%= profiles[i].user.name %>">
     <input type="submit" value="ADD TO FRIENDS LIST">
-    
     </form>
 
-<% } %>
+    <% } %>
 
-</main>
+    </main>
+    
 </body>
 
 

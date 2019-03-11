@@ -5,7 +5,7 @@ const isLoggedIn = require('../middleware/isLoggedIn');
 var db = require('../models');
 
 
-// ALL COUNTRIES
+// GET all countries
 router.get('/', isLoggedIn, function(req, res) {
     let uri = 'https://restcountries.eu/rest/v2/all'
     request(uri, function (err, response, body) {
@@ -16,7 +16,7 @@ router.get('/', isLoggedIn, function(req, res) {
     })
   });
 
-// SHOW ONE COUNTRY
+// GET one country
 router.get('/:name', isLoggedIn, function(req, res) {
     let uri = `https://restcountries.eu/rest/v2/name/${req.params.name}`
     request(uri, function (err, response, body) {
@@ -36,7 +36,7 @@ router.get('/:name', isLoggedIn, function(req, res) {
     })
 })
 
-// ADD ONE COUNTRY TO DESTINATION TABLE
+// POST one country to destination table
 router.post('/:name', isLoggedIn, function(req, res) {
     db.user.findById(req.user.id).then(function(user) {
         user.createDestination({
@@ -47,7 +47,7 @@ router.post('/:name', isLoggedIn, function(req, res) {
     })
 })
 
-// DELETE COUNTRY FROM DESTINATION TABLE
+// DELETE a country from the destination table
 router.delete('/:id', isLoggedIn, function(req, res) {
     db.usersDestinations.destroy({
         where: {userId: req.user.id, destinationId: req.params.id}
@@ -55,10 +55,6 @@ router.delete('/:id', isLoggedIn, function(req, res) {
         res.redirect("/profile")
     })
 })
-
-
-
-
 
 
   module.exports = router;

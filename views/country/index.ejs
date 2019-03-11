@@ -1,16 +1,24 @@
 <body class="countryPage">
-<br>
-<main class="mainCountry">
-<a class="navlink" href="/">Home</a>
-<a class="navlink" href="/profile">Profile</a>
-<a class="navlink" href="/auth/logout">Log Out</a>
-<br>
-<h1>COUNTRIES</h1>
-<br>
-<ul>
+
+    <br>
+
+    <main class="mainCountry">
+    <a class="navlink" href="/">Home</a>
+    <a class="navlink" href="/profile">Profile</a>
+    <a class="navlink" href="/auth/logout">Log Out</a>
+
+    <br>
+
+    <h1>COUNTRIES</h1>
+
+    <br>
+
+    <ul>
     <% countries.forEach( function(country) {%>
         <div><li><img src="<%=country.flag%>" width="100" height="50"><a class="countryLinks" href="/country/<%=country.name%>"><%= country.name %></a></li></div><br>
     <% }) %>
-</ul>
+    </ul>
+
+    </main>   
+     
 </body>
-</main>
