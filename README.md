@@ -5,6 +5,9 @@ Journey is an app that will allow users to find traveling buddies who speak a di
 ## Preview:
 ![Image of Journey](https://github.com/sangchoi/project-2/blob/master/static/img/screenshot.png)
 
+## Link to website
+[Journey](https://infinite-ravine-17494.herokuapp.com/)
+
 ## Technology and Languages Used:
 HTML, CSS, Javascript, NodeJs, Express, Psql
 
