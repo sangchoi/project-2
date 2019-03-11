@@ -1,0 +1,160 @@
+body {
+    color: rgb(254, 254, 254);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2em;
+    background-color: black;
+    background-image: url(../img/nPHTCJI.gif);
+    background-size: 100% 100vh;
+    background-attachment: fixed;
+}
+
+.journey {
+    margin: 30px 20px 0 -30px;
+    display: inline-block;
+    font-family:'Press Start 2P', cursive;
+    font-size: 4em;
+    color: rgb(255, 255, 255);
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #01505e, 0 0 40px #01505e, 0 0 50px #01505e, 0 0 60px #01505e, 0 0 70px #01505e;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #56abba, 0 0 40px #56abba, 0 0 50px #56abba, 0 0 60px #56abba, 0 0 70px #56abba, 0 0 80px #56abba;
+    }
+  }
+
+  .headline {
+    margin: 30px 20px 0 0;
+    display: inline-block;
+    font-family: 'Press Start 2P', cursive;
+    font-size: .8em;
+    color: rgb(252, 252, 252);
+  }
+
+  .navlink {
+    font-family: 'Libre Barcode 39 Text', cursive;
+    font-size: 2.5em;
+    margin: 0 0 0 -30px;
+    padding: 0 50px 0 0px;
+    color: rgb(254, 0, 0);
+  }
+
+  .navlink:hover {
+      color: rgb(45, 250, 3);
+  }
+
+  form {
+      margin: 80px 0 0 0;
+      color: rgb(254, 0, 0);
+  }
+
+  .btn {
+      background-color: red;
+      color: white;
+  }
+
+  .btn:hover {
+    background-color: rgb(224, 216, 129);
+  }
+
+
+.profilePage {
+    background-image: url("../img/pixelsceneries.webp");
+    background-attachment: fixed;
+}
+
+.mainProfile {
+    background-color: rgba(8, 8, 8, 0.5);
+    margin: 10px 0 0 -30px;
+    padding: 20px 20px 70px 20px;
+}
+
+.profileHeader {
+    display: inline-block;
+    margin: 20px 20px 10px 0px;
+}
+
+.editProfile {
+    display: inline-block;
+    color: rgb(250, 4, 139);
+}
+
+.editProfile:hover {
+    color: rgb(113, 184, 189);
+}
+
+.editProfilePage {
+    background-image: url("../img/1hrR08K.gif");
+    background-attachment: fixed;
+}
+
+.mainEdit {
+    background-color: rgba(8, 8, 8, 0.6);
+    margin: -100px 0 0 -50px;
+    padding: 20px 20px 80px 50px;
+
+}
+
+.formTwo {
+    padding: 10px;
+    margin: 10px;
+}
+
+.profileInput {
+    margin: 5px;
+}
+
+.countryPage {
+    background-image: url("../img/5yKDiKx.gif");
+    background-size: 100% cover;
+    background-attachment: fixed;
+}
+
+.mainCountry {
+    background-color: rgba(8, 8, 8, 0.6);
+    margin: 10px 0 0 -50px;
+    padding: 5px 20px 80px 50px;
+}
+
+.countryLinks {
+    color: rgb(239, 252, 254);
+    padding: 0 0 0 20px;
+}
+
+.countryLinks:hover {
+    color: rgb(254, 21, 141);
+}
+
+
+.oneCountryPage {
+    background-image: url("../img/locals.gif");
+    background-size: 100% cover;
+    background-attachment: fixed;
+}
+
+.mainOneCountry {
+    background-color: rgba(8, 8, 8, 0.6);
+    margin: -100px 0 0 -50px;
+    padding: 100px 20px 80px 50px;
+}
+
+.formThree {
+    margin: 15px 0 50px 0;
+}
+
+.formFour {
+    margin: 15px 0 50px 0;
+}
+
+.formFive {
+    margin: 15px 0 50px 0;
+   
+}
+
+.formSix {
+    margin: 15px 0 50px 0;
+    
+}

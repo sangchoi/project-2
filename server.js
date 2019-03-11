@@ -14,7 +14,7 @@ const db = require('./models')
 const app = express();
 
 app.set('view engine', 'ejs');
-
+app.use(express.static(__dirname + "/static"))
 app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(ejsLayouts);

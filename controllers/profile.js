@@ -4,7 +4,7 @@ const isLoggedIn = require('../middleware/isLoggedIn');
 var db = require('../models');
 
 // GET EDIT PAGE WITH CURRENT USER AND PROFILE
-router.get("/:id/edit", function(req, res) {
+router.get("/:id/edit", isLoggedIn, function(req, res) {
   db.user.findById(req.user.id).then(function(user) {
     user.getProfile().then(function(profile) {
       res.render("profile/edit", {user, profile})
@@ -13,7 +13,7 @@ router.get("/:id/edit", function(req, res) {
 })
 
 // POSTS THE EDITS TO THE PROFILE DATABASE
-router.put("/:id", function(req, res) {
+router.put("/:id", isLoggedIn, function(req, res) {
   db.user.findById(req.user.id).then(function(user) {
     user.getProfile().then(function(profile) {
       db.profile.update({

@@ -43,7 +43,7 @@ router.post('/:name', isLoggedIn, function(req, res) {
             name: req.body.name
         })
     }).then(function(destination) {
-        res.redirect('/country')
+        res.redirect('/country/' + req.body.name)
     })
 })
 

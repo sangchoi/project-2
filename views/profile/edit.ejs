@@ -1,14 +1,23 @@
+<body class="editProfilePage">
+<main class="mainEdit">
+<br>
+<br>
+<br>
+<a class="navlink" href="/">HOME</a>
+<a class="navlink" href="/profile">PROFILE</a>
+<br>
+<br> 
 <h1>EDIT PROFILE</h1>
-<a href="/">HOME</a>
-<a href="/profile">PROFILE</a>
 
-<form method="POST" action="/profile/<%= profile.id %>/?_method=PUT">
-    <input type="number" name="birthYear" value="<%= profile.birthYear %>"><br>
-    <input type="text" name="gender" value="<%= profile.gender %>"><br>
-    <input type="text" name="city" value="<%= profile.city %>"><br>
-    <input type="text" name="state" value="<%= profile.state %>"><br>
-    <input type="text" name="country" value="<%= profile.country %>"><br>
-    <input type="text" name="language" value="<%= profile.language %>">
-    <input type="submit" value="EDIT">
+<form class="formTwo" method="POST" action="/profile/<%= profile.id %>/?_method=PUT">
+    <input class="profileInput" type="number" name="birthYear" value="<%= profile.birthYear %>"><br>
+    <input class="profileInput" type="text" name="gender" value="<%= profile.gender %>"><br>
+    <input class="profileInput" type="text" name="city" value="<%= profile.city %>"><br>
+    <input class="profileInput" type="text" name="state" value="<%= profile.state %>"><br>
+    <input class="profileInput" type="text" name="country" value="<%= profile.country %>"><br>
+    <input class="profileInput" type="text" name="language" value="<%= profile.language %>">
+    <input class="profileInput" type="submit" value="EDIT">
 
 </form>
+</main>
+</body>
