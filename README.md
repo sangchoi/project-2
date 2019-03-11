@@ -3,7 +3,7 @@
 Journey is an app that will allow users to find traveling buddies who speak a different language than the user. 
 
 ## Preview:
-![Image of Journey](https://github.com/sangchoi/project-one/blob/master/img/screenshot.png)
+![Image of Journey](https://github.com/sangchoi/project-2/blob/master/static/img/screenshot.png)
 
 ## Technology and Languages Used:
 HTML, CSS, Javascript, NodeJs, Express, Psql
@@ -29,12 +29,12 @@ FIND AN API -> BUILD IDEA -> STUDY AND REVIEW NOTES -> CONCEPTUALIZE WIREFRAME -
 ## MODEL
 Building my model took me about a day to create, and was more taxing than I had thought, but in the end it was beneficial that I took the time to thorougly have it thought out. 
 
-![Image of Model](https://github.com/sangchoi/project-one/blob/master/img/models.jpg)
+![Image of Model](https://github.com/sangchoi/project-2/blob/master/static/img/models.jpg)
 
 ## WIREFRAME
 I am so glad I took the time to wireframe after completing my models. It made me edit mistakes I had previously made in my models before I began my project. After I began to code, I also had to switch the flow of my wireframe. Initially, I had it set up that users would be directed to the country page after they had signed up, but due to the nature of one to one relationships, the user had to create a profile before being able to use the website. 
 
-![Image of Wireframe](https://github.com/sangchoi/project-one/blob/master/img/appwireframe.png)
+![Image of Wireframe](https://github.com/sangchoi/project-2/blob/master/static/img/appwireframe.jpg)
 
 ## Issues: Solved [x] and Unsolved [ ]
 
